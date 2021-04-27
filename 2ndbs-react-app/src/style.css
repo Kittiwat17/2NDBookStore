@@ -12,6 +12,7 @@
     box-shadow: 0px 2px 10px #cecccc;
     border-radius: 5%;
     background-color: white;
+    margin: 20px;
 }
 .custom-card img{
     transition: .2s ease-in-out;
@@ -32,4 +33,33 @@ img{
 }
 .navbar-custom {
     background-color: #B0B994;
+}
+
+.item1 { grid-area: menu; }
+.item2 { grid-area: footer; }
+.grid-container {
+    display: grid;
+    grid-template-areas:
+      'menu main main main right right'
+      'menu footer footer footer footer footer';
+    grid-gap: 10px;
+    padding: 10px;
+  }
+  
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+  .item1{
+      width: 400px;
+  }
+  .item2{
+    width: 1090px;
+}
+.img2{
+    margin: 50px;
+    width: 180px;
+    height: 180px;
 }
