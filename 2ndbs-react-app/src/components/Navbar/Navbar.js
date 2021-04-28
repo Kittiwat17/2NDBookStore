@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Navbar() {
     return (
-        <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <nav class="navbar navbar-expand-lg navbar-custom">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
@@ -15,7 +15,13 @@ export default function Navbar() {
                         <a class="nav-link" href="#">โพสต์ประกาศซื้อ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">2nd store Bookstore</a>
+                        <a class="nav-link " href="#">2nd store Bookstore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Cart</a>
                     </li>
                 </ul>
             </div>

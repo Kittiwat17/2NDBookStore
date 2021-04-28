@@ -81,3 +81,12 @@ body{
 .cart{
     background-color: white;
 }
+h1{
+    text-align: center;
+    color: #0C4B09;
+    margin: 20px;
+    font-style: bload;
+}
+.nav-link {
+    color: white;
+    }
