@@ -7,8 +7,8 @@ export default class Store extends Component {
         return (
                 <div class="custom-card">
                     <img src={img} width="450px" heigh="450px" />
-                    <div class="card-body">
-                        <h2>{name}</h2>
+                    <div class="card-body border-top">
+                        <h5>{name}</h5>
                         <p>{detail}</p>
                     </div>
                 </div>
