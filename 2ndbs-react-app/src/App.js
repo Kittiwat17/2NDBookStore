@@ -5,13 +5,17 @@ import Main from './components/Main'
 import "./style.css";
 import Profile from './components/Profile/index'
 import {Route, NavLink} from 'react-router-dom'
+import Detail from './components/Detail/index'
+import Cart from './components/Cart/index'
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar/>
-      <Main/>
+      {/* <Main/> */}
       {/* <Profile/> */}
+      <Detail/>
+      {/* <Cart/> */}
     </div>
   );
 }
