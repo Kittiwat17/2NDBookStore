@@ -1,0 +1,117 @@
+<head>
+	<link rel="stylesheet" href="/static/css/base.css" />
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+<div class='container-fluid' style="font-family: 'Athiti', sans-serif;">
+	<sp class="l"></sp>
+	<theboxes class="center -clip spacing-l rack" boxing="3">
+		{% for i in ad %}
+		<box>
+			<inner class="bg-white padding-l round content shadow ">
+				<div class="">
+					<theboxes class="spacing-l -clip">
+						{% comment %} <box col="4">
+							<img src='{{i.picture.url}}' class="wide round">
+						</box>
+						<box col="8">
+							<h4 class="cl-ci4 b7">
+								{% if i.typeP == 'male' %}
+								หอพักรวม
+								{% endif %}
+								{% if i.typeP == 'female' %}
+								หอพักหญิง
+								{% endif %}
+							</h4>
+							<h4 class="h7 cl-vblack">{{i.NameDM}}</h4>
+							<sp></sp>
+							<h5>
+								{% if i.maid %}
+								<i class="fas fa-check cl-green"></i>
+								{% else %}
+								<i class="fas fa-times cl-red-6"></i>&nbsp;
+								{% endif %}
+								&nbsp;แม่บ้าน
+							</h5>
+							<h5>
+								{% if i.internet %}
+								<i class="fas fa-check cl-green"></i>
+								{% else %}
+								<i class="fas fa-times cl-red-6"></i>&nbsp;
+								{% endif %}
+								&nbsp;อินเทอร์เน็ต
+							</h5>
+							<h5>
+								{% if i.parking %}
+								<i class="fas fa-check cl-green"></i>
+								{% else %}
+								<i class="fas fa-times cl-red-6"></i>&nbsp;
+								{% endif %}
+								&nbsp;ที่จอดรถ
+							</h5>
+							<h5>
+								{% if i.security %}
+								<i class="fas fa-check cl-green"></i>
+								{% else %}
+								<i class="fas fa-times cl-red-6"></i>&nbsp;
+								{% endif %}
+								&nbsp;หน่วยรักษาความปลอดภัย
+							</h5>
+							<h5>
+								{% if i.cctv %}
+								<i class="fas fa-check cl-green"></i>
+								{% else %}
+								<i class="fas fa-times cl-red-6"></i>&nbsp;
+								{% endif %}
+								&nbsp;กล้องวงจรปิด
+							</h5>
+							<sp class=''></sp>
+							<h5 class='cl-vblack'>ที่อยู่</h5>
+							<sp class='s'></sp>
+							<h5 class="b5">
+								{{i.address}}
+							</h5>
+							<sp class=""></sp>
+							<div class="t-right">
+								<a href="{% url 'detail' i.id %}" class="u size-m">ดูเพิ่มเติม &nbsp;<i class="fas fa-arrow-right"></i></a>
+							</div>
+						</box> {% endcomment %}
+						<box>
+							<div class='item-image'>
+								<img src='{{i.picture.url}}' class="wide round">
+							</div>
+
+							<hr>
+
+							{% comment %} ตรง h2 จะให้เป็นประเภท : ประกาศรับซื้อ/ขาย แทนการทำ filter{% endcomment %}
+							<div class='item-content' style='text-align: center; margin-top: 3%'>
+								<h6 class="h8" style="color: red;">{{i.NameDM}}</h4>
+								<h4 class="h7">{{i.NameDM}}</h4>
+								<h5 class="b4">
+								{{i.address}}
+								</h5>
+							</div>
+
+							<div style="text-align: center; margin-top: 5%; font-family: 'Athiti', sans-serif';">
+								<a href="{% url 'detail' i.id %}">
+									<button class="btn my-2 my-sm-0" type="button" style="width:50%;background-color:#CB898B;">
+										ดูเพิ่มเติม
+									</button>
+								</a>
+							</div>
+						</box>
+					</theboxes>
+				</div>
+			</inner>
+		</box>
+		{% endfor %}
+	</theboxes>
+
+			{% comment %} <sp class='xl'></sp>
+			<sp class='xl'></sp>
+			<sp class='xl'></sp>
+			<sp class='xl'></sp> {% endcomment %}
+	</div>
+	{% endblock %}
+</body>

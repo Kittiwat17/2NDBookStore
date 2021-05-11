@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>2nd Store Bookshop</title>
+    <meta charset="utf-8" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/login.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-xs-6 col-md-4"></div>
+          <div class="col-xs-12 col-md-8" style="background-color:white;width:100vw;height:100vh;justify-content:center;" id="login_content">
+            <h1 id="head_login">LOGIN</h1>
+
+            <form class="form-group" method="POST">
+              {% csrf_token %}
+              <div class="form-group" style="text-align:auto">
+                <label for="inputUsername" id="username" style="display:block;">Username</label>
+                <input type="text" name='username' class="form-control" id="inputUsername" placeholder="Username">
+              </div>
+              <div class="form-group" style="text-align:auto">
+                <label for="inputPassword" id="pwd" style="display:block;">Password</label>
+                <input type="password" name='password' class="form-control" id="inputPassword" placeholder="Password">
+              </div>
+
+              {% if error %}
+                <p>{{ error }}</p>
+              {% endif %}
+              <p id="forgotpwd">Forgot Password ?</p>
+
+              <div style="width:50%; margin:auto; text-align:auto; margin-top:5%;">
+                <button type="submit" class="btn btn-block" id="login_btn">
+                  Login
+                </button>
+              </div>
+              
+              <a href="register">
+                <button type="button" class="btn btn-block mt-3" id="regis_btn">
+                  Sign Up
+                </button>
+              </a>
+            </form>
+          </div>
+      </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+{% comment %} {% extends "base.html" %}
+{% block content %}
+
+
+<theboxes class="center -gap">
+  <box col="4">
+    <inner class="bg-white padding-l round content shadow t-center">
+      <h2 class="cl-ci4 h6">เข้าสู่ระบบ</h2>
+      <sp class="vl"></sp>
+      <form class="form-signin" method="POST">
+        {% csrf_token %}
+        <input type="text" class="input wide" name="username" placeholder="Username" required="" autofocus="" />
+        <sp></sp>
+        <input type="password" class="input wide" name="password" placeholder="Password" required="" />
+        {% if error %}
+        <sp></sp>
+        <p class="cl-red-7">{{ error }}</p>
+        {% endif %}
+        <sp class="l"></sp>
+        <button class="btn wide ffont" type="submit">Login</button>
+      </form>
+      <sp class='vl'></sp>
+      <sp class='xs bg-grey-2'></sp>
+      <sp class='l'></sp>
+      <a class="u b7" href="register">Sign up</a>
+    </inner>
+  </box>
+</theboxes>
+
+{% endblock %} {% endcomment %}

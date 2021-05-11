@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="bg-white padding-l round content shadow t-center">
+    <theboxes class="rack">
+        <box col="6">
+            <img src='{{dm.picture.url}}' style="width:auto;height:50%">
+            <sp></sp>
+            <h2>{{dm.NameDM}}</h2>
+            <sp></sp>
+            ชื่อเจ้าของหอ : {{dm.user_Owner_user_id.user_user_id.first_name}}
+        </box>
+        <box col="6">
+            <inner style="display:flex;">
+            {% if userr.Send_request %}
+                <h4 class="cl-green" style="margin:auto;">เจ้าของหออนุมัติแล้ว มาเซ็นสัญญาเช่าหอที่หอพักภายใน 15 วัน</h4>
+            {% else %}
+                <h4 class="cl-red" style="margin:auto">รอการอนุมัติจากเจ้าของหอ</h4>
+            {% endif %}
+            </inner>
+        </box>
+    </theboxes>
+</div>
+{% endblock %}

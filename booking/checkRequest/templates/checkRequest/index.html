@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2>Request</h2>
+    {%for users in userr %}
+        <table><tr>
+            คุณ {{users.user_user_id.first_name}} {{users.user_user_id.last_name}} ต้องการจองห้องของคุณ
+            <form method="POST" action="{% url 'acceptrequset' users.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <div class="name">
+					    <td><button type="submit" class="btn bg-green" name='confirm' >อนุมัติ</button></td>
+				    </div> 
+                </form>
+        </tr></table>
+    {% endfor %}
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>2nd Store Bookshop</title>
+    <meta charset="utf-8" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://jabont.com/jayss/jayss.css">
+    <link rel="stylesheet" type="text/css"
+    href="http://jabont.com/jayss/jayss-custom.php?ggfont=Prompt&font=333&bg=FDD835&cl=F9A825,FDD835,FFEB3B,FFB300,f4c32f,FAFAFA">
+    <link rel="stylesheet" href="/static/css/regis.css" />
+  </head>
+
+  <body>
+    <div class='container-fluid'>
+        <div class="row">
+            <div class="col-xs-12 col-md-8" style="background-color:white;width:100vw;height:100vh;justify-content:center;" id="login_content">
+                <div style='width: 50%; margin-left: 25%;'>
+                    <h1 id="head_regis">SIGNUP</h1>
+                    <form action="{% url 'register' %}" method="POST">
+                        {% csrf_token %}
+                        {% comment %} {% for i in form %}
+                            {{i.label}}
+                            {{i}}
+                            {{i.errors}}
+                        {% endfor %} {% endcomment %}
+
+                        {{form.username.label}}
+                        {{form.username}}
+                        {{form.username.errors}}
+
+                        {{form.password.label}}
+                        {{form.password}}
+                        {{form.password.errors}}
+
+                        <div class="">
+                        <p>Confirm Password</p>
+                            <input type="password" class="input wide" placeholder="Confirm Password" name="password2" required>
+                        </div>
+                        <p>{{errors}}</p>
+
+                        {{form.email.label}}
+                        {{form.email}}
+                        {{form.email.errors}}
+
+                        {{form.phone.label}}
+                        {{form.phone}}
+                        {{form.phone.errors}}
+
+                        <select class="input wide" id="inputGroupSelect01" name="roll" required>
+                            <option value="owner" selected>ต้องการลงประกาศหอพัก</option>
+                        </select>
+                        
+                        <div class="" style='padding-top: 5%;'>
+                            <button type="submit" class="signup_btn">Sign up</button>
+                        </div>
+
+                        <div style='text-align: center; margin-top: 4%;'>
+                            <a href="{% url 'login' %}" style='color: #926E6E;'>I already have an account. Let's me login!</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-md-4"></div>
+        </div>
+     
+    </div>
+</body>
+</html>

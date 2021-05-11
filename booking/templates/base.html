@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>2nd Store Bookshop</title>
+    <meta charset="utf-8" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://jabont.com/jayss/jayss.css">
+    <link rel="stylesheet" type="text/css"
+    href="http://jabont.com/jayss/jayss-custom.php?ggfont=Prompt&font=333&bg=FDD835&cl=F9A825,FDD835,FFEB3B,FFB300,f4c32f,FAFAFA">
+    <link rel="stylesheet" href="/static/css/base.css" />
+  </head>
+  <body>
+    <!--- NavBar --->
+    <nav class="navbar navbar-expand-lg navbar-light" id="nav_color">
+      <h4 href="{% url 'index' %}" id="nav_name">
+              2nd Store
+          <span style="color: #dddddd; font-weight: bold; font-size: 13px">Bookshop</span>
+      </h4>
+
+      <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
+      {% comment %} {% if user.is_authenticated %} {% endcomment %}
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}" style="color:#F7E8E5;">หน้าหลัก</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'Add' %}" style="color:#F7E8E5;">ประกาศขายหนังสือ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color:#F7E8E5;">ตั้งรับซื้อหนังสือ</a>
+          </li>
+        </ul>
+        
+        <!-- Search -->
+        <form class="form-inline my-2 my-lg-0" style="width:70%;">
+          <input
+              class="form-control input-lg"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              style="width:40%;"
+            />
+            
+          <button class="btn my-2 my-sm-0"  href="#" type="submit" style='margin-left: 2%'>
+            <i class="fa fa-search" style="color:#E7C4C2;"></i>
+          </button>
+
+          {% if user.is_anonymous %}
+            <a href="{% url 'login' %}"style="margin-left:5%;width:20%" >
+              <button class="btn my-2 my-sm-0" type="button" style="width:100%;background-color:#E7C4C2;">
+                login
+              </button>
+            </a>
+          {% endif %}
+          {% if user.is_authenticated %}
+          {% if user.groups.all.0.name == "Owner"  %}
+            <a href="{% url 'logout' %}"style="margin-left:5%;width:20%" >
+              <button class="btn my-2 my-sm-0" type="button" style="width:100%;background-color:#E7C4C2;">
+                Logout
+              </button>
+            </a>
+            <a href="{% url 'mydm' %}"style="margin-left:5%;width:20%" >
+              <button class="btn my-2 my-sm-0" type="button" style="width:100%;background-color:#E7C4C2;">
+                Profile
+              </button>
+            </a>
+          {% endif %}
+          {% endif %}
+          {% comment %} <a href="{% url 'login' %}"style="margin-left:5%;width:20%" >
+            <button class="btn my-2 my-sm-0" type="button" style="width:100%;background-color:#E7C4C2;">
+              login
+            </button>
+          </a> {% endcomment %}
+        </form>
+      </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

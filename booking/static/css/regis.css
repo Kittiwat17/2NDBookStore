@@ -1,0 +1,68 @@
+body {
+    font-family: 'Athiti', sans-serif;
+}
+.container-fluid {
+    background-image: url(../img/signup_bg.jpg);
+    height: 100vh;
+    width: 100vw;
+}
+
+#head_regis {
+    text-align: center;
+    margin-top: 25%;
+    color: #926E6E;
+    font-weight: bold;
+}
+
+#username {
+    width: 50%;
+    margin: auto;
+}
+
+#inputUsername {
+    width: 50%;
+    margin: auto;
+}
+
+#pwd {
+    width: 50%;
+    margin: auto;
+}
+
+#inputPassword {
+    width: 50%;
+    margin: auto;
+}
+
+#forgotpwd {
+    width: 50%;
+    margin: auto;
+    text-align: right;
+}
+
+#login_btn {
+    border-radius: 20px;
+    background-color: #999B85;
+    color: white;
+    font-weight: bold;
+}
+
+#regis_btn {
+    border-radius: 20px; 
+    background-color: white; 
+    color: #926E6E; 
+    font-weight: bold; 
+    border:2px solid #926E6E; 
+    width:50%; 
+    margin:auto; 
+    text-align:auto; 
+    margin-top:5%;
+}
+
+.signup_btn {
+    width: 100%;
+    border-radius: 20px;
+    background-color: #926E6E;
+    color: white;
+    font-weight: bold;
+}

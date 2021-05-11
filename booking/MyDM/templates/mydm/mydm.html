@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="bg-white padding-l round content shadow t-center" style="margin-bottom:5em;">
+<theboxes>
+<h1>My Dormitory</h1>
+<sp></sp>
+	<box col="6">
+		<inner>
+            <img src='{{dm.picture.url}}' style="width:50%;height:50%">					
+			<sp></sp>
+			<h2><a href="{% url 'requestdm' %}">{{dm.NameDM}}</a></h2>
+		</inner>
+	</box>
+	<box col="6">
+		<inner>
+					ชื่อหอ: {{dm.NameDM}}
+					<sp></sp>
+                    {% if dm.typeP == 'male' %}
+                        ประเภท: หอพักรวม
+						<sp></sp>
+                    {% endif %}
+                    {% if dm.typeP == 'female' %}
+                        ประเภท: หอพักหญิง
+						<sp></sp>
+		            {% endif %}
+                    {% if dm.maid %}
+                        แม่บ้าน: มีแม่บ้าน
+                        {% else %}
+                        แม่บ้าน: ไม่มีแม่บ้าน
+		            {% endif %}
+					<sp></sp>                    
+                    {% if dm.internet %}
+                        อินเทอร์เนต: มี
+                        {% else %}
+                        อินเทอร์เนต: ไม่มี
+		            {% endif %}
+					<sp></sp>
+                    {% if dm.parking %}
+                        ที่จอดรถ: มี
+                        {% else %}
+                        ที่จอดรถ: ไม่มี
+		            {% endif %}
+					<sp></sp>
+                    {% if dm.security %}
+                        หน่วยรักษาความปลอดภัย: มีรปภ.
+                        {% else %}
+                        หน่วยรักษาความปลอดภัย: ไม่มีรปภ.
+		            {% endif %}
+					<sp></sp>
+                    {% if dm.cctv %}
+                        กล้องวงจรปิด: มี
+                        {% else %}
+                        กล้องวงจรปิด: ไม่มี
+		            {% endif %}
+					<sp></sp>
+                    {{dm.address}}
+					<sp></sp>
+					<form method="POST" action="{% url 'ChangeStatus' %}" enctype="multipart/form-data">
+                	{% csrf_token %}
+                    <div class="name">
+					    <button type="submit" class="btn btn-danger" name='busy' >ไม่มีห้องว่างแล้ว</button>
+				    </div> 
+                </form>
+		</inner>
+	</box>	
+</theboxes>		
+</div>
+{% endblock %}

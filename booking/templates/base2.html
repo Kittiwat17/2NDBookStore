@@ -1,0 +1,94 @@
+<!-- Base Old File -->
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <title>2nd Store Bookshop</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://jabont.com/jayss/jayss.css">
+  <link rel="stylesheet" type="text/css"
+    href="http://jabont.com/jayss/jayss-custom.php?ggfont=Prompt&font=333&bg=FDD835&cl=F9A825,FDD835,FFEB3B,FFB300,f4c32f,FAFAFA">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/base.css">
+</head>
+<body>
+  <!--=== The Section Boxes : nav ===-->
+  <nav id="nav_section" class="padding-vtc shadow">
+    <div class="cont-pd">
+      <theboxes class="middle spacing -clip">
+        <box col="4.5" mob="12" class="mob-t-center">
+          <inner class="">
+            <a href="{% url 'index' %}">
+              <h3 class="cl-ci5 b7">2nd Store <span class="cl-grey-7 b5 size-m">Bookshop</span></h3>
+            </a>
+          </inner>
+        </box>
+        <box col="6"  mob="12">
+          <inner class="t-right padding-hzt ffont b5 mob-t-center">
+          {% comment %} {% if user.is_authenticated %}
+          {% if user.groups.all.0.name == "Owner"  %} 
+          <a class="cl-grey-7 padding-hzt u" href="{% url 'Add' %}">
+            เพิ่มหอ
+          </a>
+          {% comment %} {% if user_customer.history_id == 'null' %} 
+          <a class="cl-grey-7 padding-hzt u" href="{% url 'requestdm' %}">
+            คำขออนุมัติ
+          </a>
+          {% comment %} {% endif %} 
+          <a class="cl-grey-7 padding-hzt u" href="{% url 'mydm' %}">
+            MY DORMITORY
+          </a>
+          {% comment %} {% endif %} 
+          
+          {% comment %} {% if user.groups.all.0.name == "User"  %}
+          <a class="cl-grey-7 padding-hzt u" href="{% url 'historylist' %}">
+            ประวัติการจอง
+          </a>
+          {% comment %} {% endif %}
+          {% endif %}
+          </inner>
+        </box>
+        <box col="1.5"  mob="12">
+          <inner class="t-right mob-t-center">
+            {% if user.is_anonymous %}
+            <a href="{% url 'login' %}" class="btn t-center no-mg glow">
+              Login
+            </a>
+            {% endif %}
+            {% if user.is_authenticated %}
+            {% if user.groups.all.0.name == "Owner"  %}
+            <a href="{% url 'logout' %}" class="btn t-center no-mg glow">
+              Logout
+            </a>
+            {% endif %}
+            {% if user.groups.all.0.name == "User"  %}
+            <a href="{% url 'logout' %}" class="btn t-center no-mg glow">
+              Logout
+            </a>
+            {% endif %}
+            {% endif %}
+          </inner>
+        </box>
+      </theboxes>
+    </div>
+  </nav>
+
+  <sp class="vl"></sp>
+  <div class="cont-pd">
+    
+    {% block content %}
+    {% endblock %}
+  </div>
+
+</body>
+</html> {% endcomment %}
+
+
+
+
+
