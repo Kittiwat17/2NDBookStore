@@ -40,12 +40,16 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'index' %}" style="color:#F7E8E5;">หน้าหลัก</a>
           </li>
+          {% if user.is_authenticated %}
+          {% if user.groups.all.0.name == "Owner"  %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'Add' %}" style="color:#F7E8E5;">ประกาศขายหนังสือ</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" style="color:#F7E8E5;">ตั้งรับซื้อหนังสือ</a>
           </li>
+          {% endif %}
+          {% endif %}
         </ul>
         
         <!-- Search -->
