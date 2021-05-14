@@ -8,6 +8,19 @@ from django.db.models.fields import CharField
 
 class user_Owner(models.Model):
     user_user_id = models.OneToOneField(User ,on_delete=models.CASCADE)
+<<<<<<< Updated upstream
+=======
+class Book(models.Model):
+    NameB = models.CharField(max_length=255, default='')
+    # ยังขาด typebook
+    Author = models.CharField(max_length=255, default='')
+    Year = models.CharField(max_length=255, default='')
+    Language = models.CharField(max_length=255, default='')
+    Contact = models.CharField(max_length=255)
+    Detail = models.TextField(max_length=255, default='')
+    price = models.CharField(max_length=255, default='')
+    Picture = models.ImageField(default='')
+>>>>>>> Stashed changes
 
 class Dormitory(models.Model):
     TYPE = (
@@ -52,6 +65,7 @@ class Room(models.Model):
         choices=Size,
         default='',
     )
+<<<<<<< Updated upstream
     Status = (
         (empty, 'empty'),
         (full, 'full'),
@@ -63,13 +77,33 @@ class Room(models.Model):
     )
     Room_Price = models.IntegerField(null=True)
     dormitory_dormitory_id = models.ForeignKey(Dormitory, on_delete=models.CASCADE,null=True)    
+=======
+    # Status = (
+    #     (empty, 'empty'),
+    #     (full, 'full'),
+    # )
+    # status = models.CharField(
+    #     max_length=50,
+    #     choices=Status,
+    #     default='',
+    # )
+    # Room_Price = models.IntegerField(null=True)
+    book_book_id = models.ForeignKey(Book, on_delete=models.CASCADE,null=True)    
+>>>>>>> Stashed changes
     
 
 class user_customer(models.Model):
     user_user_id = models.OneToOneField(User ,on_delete=models.CASCADE)
+<<<<<<< Updated upstream
     romm_room_id = models.ForeignKey(Room, on_delete=models.CASCADE ,null=True)
     history = models.ForeignKey(Dormitory ,on_delete=models.CASCADE,null=True)
     Send_request = models.BooleanField(default=False)
+=======
+    romm_room_id = models.ForeignKey(typebook, on_delete=models.CASCADE ,null=True)
+    history = models.ForeignKey(Book ,on_delete=models.CASCADE,null=True)
+    Send_request = models.BooleanField(default=False)
+
+>>>>>>> Stashed changes
     #start_time = models.DateTimeField(auto_now=True)
     #end_time = models.DateTimeField(auto_now=True)
 
@@ -88,7 +122,11 @@ class Booking(models.Model):
 # comment
 class user_owner_user_customer(models.Model):
     message = models.TextField(max_length=50,null=True)
+<<<<<<< Updated upstream
     room_id = models.ForeignKey(Room, on_delete=models.CASCADE)
+=======
+    typebook_id = models.ForeignKey(typebook, on_delete=models.CASCADE, null=True)
+>>>>>>> Stashed changes
     create_date = models.DateTimeField(auto_now=True)
     create_by = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):

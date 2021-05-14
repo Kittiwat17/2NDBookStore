@@ -20,6 +20,7 @@ def addDomitory(request):
     dm = Dormitory.objects.filter(user_Owner_user_id=owner)
     if not dm:
         if request.method == 'POST':
+<<<<<<< Updated upstream
             name = request.POST.get('nameDM')
             typeDM = request.POST.get('typeDM')
             address = request.POST.get('address')
@@ -37,11 +38,23 @@ def addDomitory(request):
             pictureRoom3 = request.FILES.get('pictureRoom3')
             pictureRoom4 = request.FILES.get('pictureRoom4')
             pictureRoom5 = request.FILES.get('pictureRoom5')
+=======
+            name = request.POST.get('nameBook')
+            typeb = request.POST.get('typebook')
+            nameauthor = request.POST.get('authorname')
+            year = request.POST.get('datey')
+            lang = request.POST.get('language')
+            con = request.POST.get('contact')
+            detail = request.POST.get('more')
+            picture_book = request.FILES.get('picturebook')
+            price = request.POST.get('price')
+>>>>>>> Stashed changes
 
             user_owner = user_Owner.objects.get(user_user_id=request.user.id)
             user_Owner_user_id = user_owner
 
 
+<<<<<<< Updated upstream
             status = 'empty'
             dormitory = Dormitory(NameDM=name, typeP=typeDM, maid=maid, internet=internet, parking=parking,
                                 security=security, cctv=cctv, address=address, picture=pictureDM, user_Owner_user_id=user_Owner_user_id)
@@ -52,6 +65,22 @@ def addDomitory(request):
             room.save()
             pc_room = picture_room(Room_picture1=pictureRoom1, Room_picture2=pictureRoom2, Room_picture3=pictureRoom3, Room_picture4=pictureRoom4, Room_picture5=pictureRoom5, room_room_id = room)
             pc_room.save()
+=======
+            # status = 'empty'
+            book = Book(NameB=name, Author=nameauthor, Year=year, Language=lang, Contact=contact,
+            Detail=detail, Picture=picture_book)
+            book.save()
+            # dormitory = Dormitory(NameDM=name, typeP=typeDM, maid=maid, internet=internet, parking=parking,
+            #                     security=security, cctv=cctv, address=address, picture=pictureDM, user_Owner_user_id=user_Owner_user_id)
+            # dormitory.save()
+            typebook = Typebook(Type=typeb, Price=price)
+            typebook.save
+            # room = Room(type_room=typeRoom, size=sizeRoom, status=status, Room_Price=Room_price,
+            #         dormitory_dormitory_id=dormitory )
+            # room.save()
+            # pc_room = picture_room(Room_picture1=pictureRoom1, Room_picture2=pictureRoom2, Room_picture3=pictureRoom3, Room_picture4=pictureRoom4, Room_picture5=pictureRoom5, room_room_id = room)
+            # pc_room.save()
+>>>>>>> Stashed changes
             return redirect('index')
         return render(request, template_name='add/index.html')
     else:
