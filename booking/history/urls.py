@@ -5,6 +5,6 @@ from . import views
 
 
 urlpatterns = [
-    path('historylist/', views.History, name='historylist'),
-    path('<int:user_owner_id>',views.update_history, name='history'),
+    # path('historylist/', views.History, name='historylist'),
+    # path('<int:user_owner_id>',views.update_history, name='history'),
 ]

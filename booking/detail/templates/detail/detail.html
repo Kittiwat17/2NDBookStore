@@ -118,7 +118,7 @@ div.container>div.next>.arrow-right {
 <div class='container' style="padding-top: 2%; padding-bottom: 2%;">
 	<div class="bg-white padding-l round content shadow">
 		<theboxes class="spacing-l -clip">
-			<box col="6">
+			{% comment %} <box col="6">
 				<inner>	
 					<div class="container round">
 						<div class="prev">
@@ -146,46 +146,50 @@ div.container>div.next>.arrow-right {
 						</div>
 					</div>
 				</inner>
-			</box>
+			</box> {% endcomment %}
 			<box col="6">
 				<inner>
-					<h2>{{dm.NameDM}}</h2>
-					{% if dm.typeP == 'male' %}
+					<h2>{{dm.NameB}}</h2>
+					{% comment %} {% if dm.typeP == 'male' %}
 						<h3>ประเภทหอพัก: หอรวม</h3>
 						{% else %}
 						<h3>ประเภทหอพัก: หอหญิง</h3>
-					{% endif %}
+					{% endif %} {% endcomment %}
 					<sp class="l"></sp>
 			
 					<sp></sp>
-					{% if rm.type_room == 'Air' %}
+					{% comment %} {% if rm.type_room == 'Air' %}
 						ประเภทห้อง:  ห้องแอร์
 						{% else %}
 						ประเภทห้อง:  ห้องพัดลม
-					{% endif %}
+					{% endif %} {% endcomment %}
 					<sp></sp>
-					{% if rm.size == 'BIG' %}
-						ขนาดห้อง: ห้องใหญ่
+					{% if rm.size == 'cartoon' %}
+						ขนาดห้อง: การ์ตูน
 					<sp></sp>	
 					{% endif %}
-					{% if rm.size == 'MEDIUM' %}
-						ขนาดห้อง: ห้องขนาดกลาง
+					{% if rm.size == 'fiction' %}
+						ขนาดห้อง: นิยาย
 					<sp></sp>
 					{% endif %}
-					{% if rm.size == 'SMALL' %}
-						ขนาดห้อง: ห้องเล็ก
+					{% if rm.size == 'documentary' %}
+						ขนาดห้อง: สารคดี
 					<sp></sp>
 					{% endif %}
-					{% if rm.status == 'empty' %}
+					{% if rm.size == 'fairy' %}
+						ขนาดห้อง: นิทาน
+					<sp></sp>
+					{% endif %}
+					{% comment %} {% if rm.status == 'empty' %}
 						สถานะ: มีห้องว่างให้เช่า
 					{% else %}
 					<sp></sp>
 						สถานะ: เต็มแล้ว
-					{% endif %}
+					{% endif %} {% endcomment %}
 					<sp></sp>
 					ราคา: {{rm.Room_Price}} บาท
 					<sp></sp>
-					ที่อยู่:  {{dm.address}}
+					ที่อยู่:  {{dm.Detail}}
 					<sp class="l"></sp>
 					<div style="display:inline;">
 					{% if user.groups.all.0.name == "User"  %}

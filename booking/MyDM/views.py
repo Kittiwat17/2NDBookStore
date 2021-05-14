@@ -1,17 +1,17 @@
 from django.shortcuts import redirect, render
 from django.template.context_processors import request
-from main.models import Dormitory, Room, user_customer, user_Owner
+from main.models import Book, Typebook
 
 # Create your views here.
 
-# def mydormitory(request):
+# def myBook(request):
 #     return render(request, 'mydm/mydm.html')
 
 def ChangeStatus(request):
     # เปลี่ยนข้อมูลในดาต้าเบสจากว่างเป็นไม่ว่าง---
     owner = user_Owner.objects.get(user_user_id=request.user)
-    dm = Dormitory.objects.get(user_Owner_user_id=owner)
-    rm = Room.objects.get(dormitory_dormitory_id = dm)
+    dm = Book.objects.get(user_Owner_user_id=owner)
+    rm = Typebook.objects.get(book_book_id = dm)
     if request.method == 'POST':
         rm.status = 'busy'
         rm.save()
@@ -19,11 +19,11 @@ def ChangeStatus(request):
     return render(request, 'mydm/mydm.html')
 
 
-def mydormitory(request):
+def myBook(request):
     owner = user_Owner.objects.get(user_user_id=request.user)
-    dm = Dormitory.objects.filter(user_Owner_user_id=owner)
+    dm = Book.objects.filter(user_Owner_user_id=owner)
     if dm:
-        dm = Dormitory.objects.get(user_Owner_user_id=owner)
+        dm = Book.objects.get(user_Owner_user_id=owner)
         return render(request, 'mydm/mydm.html',context = {
             'dm': dm,
         })
@@ -42,7 +42,7 @@ def mydormitory(request):
 
 
 # owner = user_Owner.objects.get(user_user_id=request.user)
-#     dm = Dormitory.objects.get(user_Owner_user_id=owner)
+#     dm = Book.objects.get(user_Owner_user_id=owner)
 #     userr = user_customer.objects.filter(history=dm)
 #     context = {
 #         'userr': userr,

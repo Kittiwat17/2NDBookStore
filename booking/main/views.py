@@ -9,7 +9,7 @@ from django.template.context_processors import request
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
-from main.models import Dormitory, user_Owner, user_customer
+from main.models import Book, user_Owner
 from django.db.models import Q
 
 # Create your views here.
@@ -74,7 +74,7 @@ def index(request):
         # search_cctv = covertTF(search_cctv)
         # ad = ad.filter(Q(NameDM__contains=search_name) , Q(typeP=search_gender) , Q(maid=convert1(search_maid)) , Q(internet=convert1(search_internet)) , Q(parking=convert1(search_parking)) , Q(security=convert1(search_security)), Q(cctv=convert1(search_cctv)))
 
-        ad = Dormitory.objects.all()
+        ad = Book.objects.all()
         ad = ad.filter(NameDM__icontains=search_name)
         ad = ad.filter(typeP__icontains=search_gender)
         ad = ad.filter(maid=bool(int(search_maid)))
@@ -86,7 +86,7 @@ def index(request):
         
 
     else:
-        ad = Dormitory.objects.all()
+        ad = Book.objects.all()
     
         # if request.POST.get('maid') != 'select':
         #     ad = ad.filter

@@ -6,6 +6,6 @@ from . import views
 
 urlpatterns = [
     # path('', views.mydormitory, name='mydormitory'),
-    path('mydm/', views.mydormitory, name='mydm'),
+    # path('mydm/', views.mybook, name='mydm'),
     path('ChangeStatus/',views.ChangeStatus, name='ChangeStatus'),
 ]

@@ -8,139 +8,56 @@
 <form method="POST" action="{% url 'Add' %}" enctype="multipart/form-data">
 {% csrf_token %}
 	<div class="container">
-	<h1 class="cl-ci4">ลงทะเบียนหอพัก</h1>
+	<h1 class="cl-ci4">ประกาศซื้อ / ขาย</h1>
 	<sp></sp>
-		<div class="input-group mb-3">
+         <div class="input-group mb-3">
 			<div class="input-group-prepend">
-				<span class="input-group-text" id="inputGroup-sizing-default">ชื่อหอพัก</span>
+				<span class="input-group-text" id="inputGroup-sizing-default">ชื่อหนังสือ</span>
 			</div>
-			<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="nameDM" required>
-		</div>
-        <div class="input-group mb-3">
+			<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="nameBook" required>
+		</div> 
+             <div class="input-group mb-3">
 			<div class="input-group-prepend">
-				<label class="input-group-text" for="inputGroupSelect01">ประเภทของหอพัก</label>
+				<label class="input-group-text" for="inputGroupSelect01">เลือกหมวดหมู่</label>
 			</div>
-			<select class="custom-select" id="inputGroupSelect01" name="typeDM" required>
-				<option value="male">หอพักรวม</option>
-				<option value="female">หอพักหญิง</option>
-			</select>
-		</div>
-		<div class="input-group mb-3">
+			<select class="custom-select" id="inputGroupSelect01" name="typebook" required>
+				<option value="cartoon">หนังสือการ์ตูน</option>
+				<option value="fiction">หนังสือนิยาย</option>
+                <option value="documentary">หนังสือสารคดี</option>
+				<option value="fairy">หนังสือนิทาน</option>
+			</select> 
+			</div>
+         <div class="input-group mb-3">
 			<div class="input-group-prepend">
-				<span class="input-group-text" id="inputGroup-sizing-default" >ที่อยู่หอพัก</span>
+				<span class="input-group-text" id="inputGroup-sizing-default" >ชื่อผู้แต่ง</span>
 			</div>
-			<input type="text" class="form-control" name="address" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+			<input type="text" class="form-control" name="authorname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+		</div> 
+        <div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default" >ปีที่พิมพ์</span>
+			<input type="text" class="form-control" name="datey" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+		</div> 
+        <div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default" >ภาษา</span>
+			<input type="text" class="form-control" name="language" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+		</div> 
+        <div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default" >ช่องทางติดต่อ</span>
+
+			<input type="text" class="form-control" name="contact" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+		</div> <div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default" >รายละเอียด</span>
+			<input type="text" class="form-control" name="more" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
 		</div>
-        
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<label class="input-group-text" for="inputGroupSelect01">มี"แม่บ้าน"หรือไม่?</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01" name="maid" required>
-				{% comment %} <option selected>เลือก...</option> {% endcomment %}
-				<option value="True">มี</option>
-				<option value="False">ไม่มี</option>
-			</select>
-		</div>
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<label class="input-group-text" for="inputGroupSelect01">มี"อินเทอร์เน็ต"หรือไม่?</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01" name="internet" required>
-				{% comment %} <option selected>เลือก...</option> {% endcomment %}
-				<option value="True">มี</option>
-				<option value="False">ไม่มี</option>
-			</select>
-		</div>
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<label class="input-group-text" for="inputGroupSelect01">มี"ที่จอดรถ"หรือไม่?</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01" name="parking" required>
-				{% comment %} <option selected>เลือก...</option> {% endcomment %}
-				<option value="True">มี</option>
-				<option value="False">ไม่มี</option>
-			</select>
-		</div>
-        <div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<label class="input-group-text" for="inputGroupSelect01">มี"หน่วยรักษาความปลอดภัย"หรือไม่?</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01" name="security">
-				{% comment %} <option selected>เลือก...</option> {% endcomment %}
-				<option value="True">มี</option>
-				<option value="False">ไม่มี</option>
-			</select>
-		</div>
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<label class="input-group-text" for="inputGroupSelect01">มี"กล้องวงจรปิด"หรือไม่?</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01" name="cctv">
-				{% comment %} <option selected>เลือก...</option> {% endcomment %}
-				<option value="True">มี</option>
-				<option value="False">ไม่มี</option>
-			</select>
-		</div>
-        <label>รูปหอพัก</label>
+		<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default" >ราคา</span>
+			<input type="text" class="form-control" name="Room_price" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+		</div>  
+        <label>picture</label>
         <div class="custom-file">
-			<input type="file" class="custom-file-input" name="pictureDM" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+			<input type="file" class="custom-file-input" name="picturebook" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
 			<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
 		</div>   
-        <label style="margin-top:1em;">รายละเอียดห้องพัก</label>
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<label class="input-group-text" for="inputGroupSelect01">ประเภทของห้องพัก</label>
-			</div>
-			<select class="custom-select" name="typeRoom" id="inputGroupSelect01" required>
-				{% comment %} <option selected>เลือก...</option> {% endcomment %}
-				<option value="Air">ห้องแอร์</option>
-				<option value="Fan">ห้องพัดลม</option>
-			</select>
-		</div>
-        <div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<label class="input-group-text" for="inputGroupSelect01">ขนาดของห้องพัก</label>
-			</div>
-			<select class="custom-select" name="sizeRoom" id="inputGroupSelect01" required>
-				{% comment %} <option selected>เลือก...</option> {% endcomment %}
-				<option value="BIG">ใหญ่</option>
-				<option value="MEDIUM">กลาง</option>
-                <option value="SMALL">เล็ก</option>
-			</select>
-		</div>
-        <div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<span class="input-group-text" id="inputGroup-sizing-default">ราคาห้อง...บาท/เดือน (กรอกแค่ราคาไม่ต้องใส่หน่วย)</span>
-			</div>
-			<input type="text" class="form-control" name="Room_price" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-		</div>
-        <label>รูปห้องพัก</label>
-		<p>รูปที่ 1</p>
-		<div class="custom-file">
-			<input type="file" class="custom-file-input" id="inputGroupFile01" name="pictureRoom1" aria-describedby="inputGroupFileAddon01">
-			<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-		</div>
-		<p style="margin-top:1em;">รูปที่ 2</p>
-		<div class="custom-file">
-			<input type="file" class="custom-file-input" id="inputGroupFile01" name="pictureRoom2" aria-describedby="inputGroupFileAddon01">
-			<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-		</div>
-		<p style="margin-top:1em;">รูปที่ 3</p>
-		<div class="custom-file">
-			<input type="file" class="custom-file-input" id="inputGroupFile01" name="pictureRoom3" aria-describedby="inputGroupFileAddon01">
-			<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-		</div>
-		<p style="margin-top:1em;">รูปที่ 4</p>
-		<div class="custom-file">
-			<input type="file" class="custom-file-input" id="inputGroupFile01" name="pictureRoom4" aria-describedby="inputGroupFileAddon01">
-			<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-		</div>
-		<p style="margin-top:1em;">รูปที่ 5</p>
-		<div class="custom-file">
-			<input type="file" class="custom-file-input" id="inputGroupFile01" name="pictureRoom5" aria-describedby="inputGroupFileAddon01">
-			<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-		</div>
 		<sp class="vl"></sp>
 		<button type="submit" class="btn">Success</button>
 	</div>
