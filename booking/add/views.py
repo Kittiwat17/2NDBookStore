@@ -17,7 +17,8 @@ from django.contrib.auth.decorators import login_required, permission_required
 @login_required
 def addDomitory(request):
     owner = user_Owner.objects.get(user_user_id=request.user)
-    dm = Book.objects.filter(user_Owner_user_id=owner)
+    print(owner)
+    dm = Book.objects.filter(user_Owner__user_id=owner)
     if not dm:
         if request.method == 'POST':
             name = request.POST.get('nameBook')
