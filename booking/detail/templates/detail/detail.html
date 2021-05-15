@@ -27,6 +27,12 @@ h4 {
 	color: #926E6E;
 	font-weight: bold;
 }
+
+h2, h3 {
+	font-family: 'Athiti', sans-serif;
+	color: black;
+	font-weight: bold;
+}
 div.container {
     margin:0 auto;
     max-width: 1000px;
@@ -126,9 +132,9 @@ div.container>div.next>.arrow-right {
 						</div>
 						<ul class="slider" id='ul'>
 							<li class="visible" id='li'>
-								<img src="{{pc.Room_picture1.url}}">
+								<img src="{{dm.Picture.url}}">
 							</li>
-							{% if pc.Room_picture2 %}
+							{% comment %} {% if pc.Room_picture2 %}
 							<li id='li'><img src="{{pc.Room_picture2.url}}"></li>
 							{% endif %}
 							{% if pc.Room_picture3 %}
@@ -139,7 +145,7 @@ div.container>div.next>.arrow-right {
 							{% endif %}
 							{% if pc.Room_picture5 %}
 							<li id='li'><img src="{{pc.Room_picture5.url}}"></li>
-							{% endif %}	
+							{% endif %}	 {% endcomment %}
 						</ul>
 						<div class="next">
 							<div class="arrow-right"></div>
@@ -150,46 +156,41 @@ div.container>div.next>.arrow-right {
 			<box col="6">
 				<inner>
 					<h2>{{dm.NameB}}</h2>
-					{% comment %} {% if dm.typeP == 'male' %}
-						<h3>ประเภทหอพัก: หอรวม</h3>
-						{% else %}
-						<h3>ประเภทหอพัก: หอหญิง</h3>
-					{% endif %} {% endcomment %}
-					<sp class="l"></sp>
-			
-					<sp></sp>
-					{% comment %} {% if rm.type_room == 'Air' %}
-						ประเภทห้อง:  ห้องแอร์
-						{% else %}
-						ประเภทห้อง:  ห้องพัดลม
-					{% endif %} {% endcomment %}
-					<sp></sp>
-					{% if rm.size == 'cartoon' %}
-						ขนาดห้อง: การ์ตูน
+					<h3>{{dm.Author}}</h2>
+					{% comment %} ประเภทของหนังสือ {% endcomment %}
+					<sp></sp>	
+					{% if rm.typee == 'cartoon' %}
+						ประเภทหนังสือ : การ์ตูน
 					<sp></sp>	
 					{% endif %}
-					{% if rm.size == 'fiction' %}
-						ขนาดห้อง: นิยาย
+					{% if rm.typee == 'fiction' %}
+						ประเภทหนังสือ : นิยาย
 					<sp></sp>
 					{% endif %}
-					{% if rm.size == 'documentary' %}
-						ขนาดห้อง: สารคดี
+					{% if rm.typee == 'documentary' %}
+						ประเภทหนังสือ : สารคดี
 					<sp></sp>
 					{% endif %}
-					{% if rm.size == 'fairy' %}
-						ขนาดห้อง: นิทาน
+					{% if rm.Typee == 'fairy' %}
+						ประเภทหนังสือ : นิทาน
 					<sp></sp>
 					{% endif %}
-					{% comment %} {% if rm.status == 'empty' %}
-						สถานะ: มีห้องว่างให้เช่า
-					{% else %}
+					ปีที่พิมพ์: {{dm.Year}}
 					<sp></sp>
-						สถานะ: เต็มแล้ว
-					{% endif %} {% endcomment %}
+					ภาษา: {{dm.Language}}
 					<sp></sp>
-					ราคา: {{rm.Room_Price}} บาท
+					วันที่ลงประกาศ: {{dm.start_time}}
 					<sp></sp>
-					ที่อยู่:  {{dm.Detail}}
+					ผู้ลงขาย: {{dm.user_user_id}}
+					<sp></sp>
+					ที่อยู่:  {{dm.Contact}}
+					{% comment %} <sp class="l"></sp>
+					<sp></sp>
+					{% endcomment %}
+					<sp></sp>
+					รายละเอียดหนังสือ:  {{dm.Detail}}
+					<sp></sp>
+					<a style="color: red; font-weight: bold; font-size: 25px;">ราคา: {{dm.Price}} บาท</a>
 					<sp class="l"></sp>
 					<div style="display:inline;">
 					{% if user.groups.all.0.name == "User"  %}

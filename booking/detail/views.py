@@ -17,12 +17,12 @@ def detail(request, user_owner_user_id):
     rm = Typebook.objects.get(book_book_id=user_owner_user_id)
     dm = Book.objects.get(id=user_owner_user_id)
     mas = user_owner_user_customer.objects.filter(typebook_id=rm.id)
-    pc = picture_typebook.objects.get(typebook_typebook_id=rm)
+    # pc = Picture_typebook.objects.get(typebook_typebook_id=rm)
     return render(request,'detail/detail.html',context={
         'rm':rm,
         'dm':dm,
         'mas': mas,
-        'pc': pc
+        # 'pc': pc
     })
 def go_to_Add(request):
     return render(request, 'add/index.html')
