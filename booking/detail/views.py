@@ -29,7 +29,7 @@ def go_to_Add(request):
 
 
 def create_comment(request, typebook_id):
-    typebook = typebook.objects.get(id=typebook_id)
+    typebook = Typebook.objects.get(id=typebook_id)
     if request.POST:
         text = request.POST.get('comment')
         mes = user_owner_user_customer.objects.create(
@@ -37,5 +37,5 @@ def create_comment(request, typebook_id):
             typebook_id=typebook,
             create_by=request.user,
         )
-        return redirect('detail', typebook.dormitory_dormitory_id.id)
-    return redirect('detail', typebook.dormitory_dormitory_id.id)
+        return redirect('detail', typebook.book_book_id.id)
+    return redirect('detail', typebook.book_book_id.id)

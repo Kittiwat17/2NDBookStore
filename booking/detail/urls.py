@@ -8,6 +8,6 @@ urlpatterns = [
     # path('', views.detail, name='detail'),
     path('<int:user_owner_user_id>',views.detail, name='detail'),
     path('Add/', views.go_to_Add, name='Add'),
-    path('create_comment/<int:room_id>',views.create_comment, name='create_comment')
+    path('create_comment/<int:typebook_id>',views.create_comment, name='create_comment')
 
 ]
