@@ -41,7 +41,7 @@
             <a class="nav-link" href="{% url 'index' %}" style="color:#F7E8E5;">หน้าหลัก</a>
           </li>
           {% if user.is_authenticated %}
-          {% if user.groups.all.0.name == "Owner"  %}
+          {% comment %} {% if user.groups.all.0.name == "Owner"  %} {% endcomment %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'Add' %}" style="color:#F7E8E5;">ประกาศขายหนังสือ</a>
           </li>
@@ -49,7 +49,7 @@
             <a class="nav-link" href="#" style="color:#F7E8E5;">ตั้งรับซื้อหนังสือ</a>
           </li>
           {% endif %}
-          {% endif %}
+          {% comment %} {% endif %} {% endcomment %}
         </ul>
         
         <!-- Search -->
@@ -74,19 +74,19 @@
             </a>
           {% endif %}
           {% if user.is_authenticated %}
-          {% if user.groups.all.0.name == "Owner"  %}
+          {% comment %} {% if user.groups.all.0.name == "Owner"  %} {% endcomment %}
             <a href="{% url 'logout' %}"style="margin-left:5%;width:20%" >
               <button class="btn my-2 my-sm-0" type="button" style="width:100%;background-color:#E7C4C2;">
                 Logout
               </button>
             </a>
-            <a href="{% url 'mydm' %}"style="margin-left:5%;width:20%" >
+            <a href="{% url 'ChangeStatus' %}"style="margin-left:5%;width:20%" >
               <button class="btn my-2 my-sm-0" type="button" style="width:100%;background-color:#E7C4C2;">
                 Profile
               </button>
             </a>
           {% endif %}
-          {% endif %}
+          {% comment %} {% endif %} {% endcomment %}
           {% comment %} <a href="{% url 'login' %}"style="margin-left:5%;width:20%" >
             <button class="btn my-2 my-sm-0" type="button" style="width:100%;background-color:#E7C4C2;">
               login
