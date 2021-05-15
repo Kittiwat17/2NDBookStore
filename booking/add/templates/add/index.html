@@ -1,78 +1,106 @@
+<head>
+	<link rel="stylesheet" href="/static/css/add.css" />
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
 
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
-<div class="bg-white padding-l round content shadow">
+<div class="container-fluid">
 <form method="POST" action="{% url 'Add' %}" enctype="multipart/form-data">
 {% csrf_token %}
 	<div class="container">
-	<h1 class="cl-ci4">ลงทะเบียนหอพัก</h1>
+	<h1 class=" " style="text-align: center; color: #5C6D5B; padding-top: 3%">สร้างโพสต์เลย !</h1>
 	<sp></sp>
+
 	<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<label class="input-group-text" for="inputGroupSelect01">เลือกประเภทโพสต์</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01" name="typepost" required>
+		<div class="input-group-prepend">
+			<label class="input-group-text" for="inputGroupSelect01">เลือกประเภทโพสต์</label>
+		</div>
+			<select class="custom-select" id="inputGroupSelect01" name="typepost" style="font-family: 'Athiti', sans-serif;" required>
 				<option value="buy">ประกาศซื้อ</option>
 				<option value="sell">ประกาศขาย</option>
-			</select> </div>
-         <div class="input-group mb-3">
+			</select> 
+		</div>
+
+		
+        <div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="inputGroup-sizing-default">ชื่อหนังสือ</span>
 			</div>
 			<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="nameBook" required>
 		</div> 
-             <div class="input-group mb-3">
+
+    	<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<label class="input-group-text" for="inputGroupSelect01">เลือกหมวดหมู่</label>
 			</div>
-			<select class="custom-select" id="inputGroupSelect01" name="typebook" required>
+			<select class="custom-select" id="inputGroupSelect01" name="typebook" style="font-family: 'Athiti', sans-serif;" required>
 				<option value="cartoon">หนังสือการ์ตูน</option>
 				<option value="fiction">หนังสือนิยาย</option>
                 <option value="documentary">หนังสือสารคดี</option>
 				<option value="fairy">หนังสือนิทาน</option>
-			</select> </div>
-         <div class="input-group mb-3">
+			</select> 
+		</div>
+
+    	<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="inputGroup-sizing-default" >ชื่อผู้แต่ง</span>
+			</div>
 			<input type="text" class="form-control" name="authorname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-		</div> 
-        <div class="input-group-prepend">
-				<span class="input-group-text" id="inputGroup-sizing-default" >ปีที่พิมพ์</span>
+			
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default" style="margin-left: 5%;">ปีที่พิมพ์</span>
+			</div>
 			<input type="text" class="form-control" name="datey" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-		</div> 
-        <div class="input-group-prepend">
-				<span class="input-group-text" id="inputGroup-sizing-default" >ภาษา</span>
+			
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default" style="margin-left: 5%;" >ภาษา</span>
+			</div>
 			<input type="text" class="form-control" name="language" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-		</div> 
-        <div class="input-group-prepend">
+		</div>
+
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
 				<span class="input-group-text" id="inputGroup-sizing-default" >ช่องทางติดต่อ</span>
-			<input type="text" class="form-control" name="contact" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-		</div> <div class="input-group-prepend">
-		<div class="input-group-prepend">
-				<span class="input-group-text" id="inputGroup-sizing-default" >ราคา</span>
-			<input type="text" class="form-control" name="Price" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-		</div> <div class="input-group-prepend">
-				<span class="input-group-text" id="inputGroup-sizing-default" >รายละเอียด</span>
-			<input type="text" class="form-control" name="more" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+			</div>
+			<input type="text" class="form-control" name="contact" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>	
 		</div> 
+		
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default" >ราคา</span>
+			</div> 
+			<input type="text" class="form-control" name="Price" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>		
+		</div>
+		
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default" >รายละเอียด</span>
+			</div>
+			<input type="text" class="form-control" name="more" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+		</div>
+
         <label>picture</label>
+
         <div class="custom-file">
 			<input type="file" class="custom-file-input" name="picturebook" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
 			<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
 		</div>   
 		<sp class="vl"></sp>
-		<button type="submit" class="btn">Success</button>
+		<button type="submit" class="btn" style="margin-bottom: 3%; background-color: #926E6E;">Success</button>
 	</div>
 </form>
 </div>
 <sp class="xl"></sp>
-<style>
+
+{% comment %} <style>
 	.btn {
     color: #fff !important;
     background: #F9A825;
 }
-</style>
+</style> {% endcomment %}
+
 {% endblock %}
+</body>

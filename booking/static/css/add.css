@@ -1,0 +1,16 @@
+body {
+    background-color: #F7E8E5;
+}
+
+.container {
+    width: 90%;
+    margin-top: 2%;
+    background-color: white;
+    border-radius: 20px;
+
+}
+
+.btn {
+    margin-bottom: 3%;
+    background-color: #999B85;
+}
