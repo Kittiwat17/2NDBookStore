@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.template.context_processors import request
 from builtins import object
-from main.models import Book, Typebook
+from main.models import Book, Typebook, user_Owner
 from django.contrib.auth.decorators import login_required, permission_required
 
 # Create your views here.
@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 #     return render(request, 'add/index.html')
 
 
-@permission_required('main.add_book')
+@permission_required('main.add_dormitory')
 @login_required
 def addDomitory(request):
     owner = user_Owner.objects.get(user_user_id=request.user)
@@ -28,7 +28,7 @@ def addDomitory(request):
             con = request.POST.get('contact')
             detail = request.POST.get('more')
             picture_book = request.FILES.get('picturebook')
-            Room_price = request.POST.get('Room_price')
+            
 
             user_owner = user_Owner.objects.get(user_user_id=request.user.id)
             user_Owner_user_id = user_owner
@@ -41,7 +41,7 @@ def addDomitory(request):
             # dormitory = Dormitory(NameDM=name, typeP=typeDM, maid=maid, internet=internet, parking=parking,
             #                     security=security, cctv=cctv, address=address, picture=pictureDM, user_Owner_user_id=user_Owner_user_id)
             # dormitory.save()
-            typebook = Typebook(Type=typeb, Room_Price=Room_price)
+            typebook = Typebook(Type=typeb)
             typebook.save
             # room = Room(type_room=typeRoom, size=sizeRoom, status=status, Room_Price=Room_price,
             #         dormitory_dormitory_id=dormitory )

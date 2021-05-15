@@ -8,7 +8,7 @@
 <form method="POST" action="{% url 'Add' %}" enctype="multipart/form-data">
 {% csrf_token %}
 	<div class="container">
-	<h1 class="cl-ci4">ประกาศซื้อ / ขาย</h1>
+	<h1 class="cl-ci4">ลงทะเบียนหอพัก</h1>
 	<sp></sp>
          <div class="input-group mb-3">
 			<div class="input-group-prepend">
@@ -26,11 +26,9 @@
                 <option value="documentary">หนังสือสารคดี</option>
 				<option value="fairy">หนังสือนิทาน</option>
 			</select> 
-			</div>
          <div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="inputGroup-sizing-default" >ชื่อผู้แต่ง</span>
-			</div>
 			<input type="text" class="form-control" name="authorname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
 		</div> 
         <div class="input-group-prepend">
@@ -43,16 +41,15 @@
 		</div> 
         <div class="input-group-prepend">
 				<span class="input-group-text" id="inputGroup-sizing-default" >ช่องทางติดต่อ</span>
-
 			<input type="text" class="form-control" name="contact" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+		</div> <div class="input-group-prepend">
+		<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default" >ราคา</span>
+			<input type="text" class="form-control" name="Price" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
 		</div> <div class="input-group-prepend">
 				<span class="input-group-text" id="inputGroup-sizing-default" >รายละเอียด</span>
 			<input type="text" class="form-control" name="more" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-		</div>
-		<div class="input-group-prepend">
-				<span class="input-group-text" id="inputGroup-sizing-default" >ราคา</span>
-			<input type="text" class="form-control" name="Room_price" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-		</div>  
+		</div> 
         <label>picture</label>
         <div class="custom-file">
 			<input type="file" class="custom-file-input" name="picturebook" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">

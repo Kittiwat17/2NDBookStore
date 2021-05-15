@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'checkRequest',
     'MyDM',
     'detail',
-    'history',
     'main',
 ]
 
@@ -82,7 +81,7 @@ WSGI_APPLICATION = 'booking.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'test',
+        'NAME': 'cloudNew',
         'USER': 'postgres',
         'PASSWORD': '123456',
         'HOST': 'localhost',
