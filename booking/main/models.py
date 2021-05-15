@@ -41,8 +41,8 @@ class user_customer(models.Model):
     romm_room_id = models.ForeignKey(Typebook, on_delete=models.CASCADE ,null=True)
     history = models.ForeignKey(Book ,on_delete=models.CASCADE,null=True)
     Send_request = models.BooleanField(default=False)
-    #start_time = models.DateTimeField(auto_now=True)
-    #end_time = models.DateTimeField(auto_now=True)
+    start_time = models.DateTimeField(auto_now=True)
+    end_time = models.DateTimeField(auto_now=True)
 
 
 # class Furniture(models.Model):
