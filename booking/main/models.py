@@ -17,6 +17,7 @@ class Book(models.Model):
     Price = models.CharField(max_length=255, default='')
     Detail = models.TextField(max_length=255, default='')
     Picture = models.ImageField(default='')
+    user_Owner_user_id = models.ForeignKey(user_Owner, on_delete=models.CASCADE, null=True)
 class Typebook(models.Model):
     Cartoon = 'cartoon'
     Fiction = 'fiction'

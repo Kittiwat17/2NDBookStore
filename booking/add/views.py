@@ -16,11 +16,11 @@ from django.contrib.auth.decorators import login_required, permission_required
 @permission_required('main.add_dormitory')
 @login_required
 def addDomitory(request):
-    rm = user_Owner.objects.get(user_user_id=request.user)
-    dm = Book.objects.get(id=rm.id)
-    # owner = user_Owner.objects.get(user_user_id=request.user)
-    # print(owner)
-    # dm = Book.objects.filter(user_Owner__user_id=owner)
+    # rm = user_Owner.objects.get(user_user_id=request.user)
+    # dm = Book.objects.get(book_user_id=rm)
+    owner = user_Owner.objects.get(user_user_id=request.user)
+    print(owner)
+    dm = Book.objects.filter(user_Owner_user_id=owner)
     if not dm:
         if request.method == 'POST':
             name = request.POST.get('nameBook')
@@ -29,6 +29,7 @@ def addDomitory(request):
             year = request.POST.get('datey')
             lang = request.POST.get('language')
             con = request.POST.get('contact')
+            price = request.POST.get('Price')
             detail = request.POST.get('more')
             picture_book = request.FILES.get('picturebook')
             
