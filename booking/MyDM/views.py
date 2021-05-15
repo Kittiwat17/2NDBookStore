@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.template.context_processors import request
-from main.models import Book, Typebook
+from main.models import Book, Typebook, user_Owner
 
 # Create your views here.
 
@@ -43,7 +43,6 @@ def myBook(request):
 
 # owner = user_Owner.objects.get(user_user_id=request.user)
 #     dm = Book.objects.get(user_Owner_user_id=owner)
-#     userr = user_customer.objects.filter(history=dm)
 #     context = {
 #         'userr': userr,
 #     }
