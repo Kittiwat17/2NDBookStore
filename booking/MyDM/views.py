@@ -43,8 +43,8 @@ def myBook(request):
     #     return render(request, 'mydm/mydm.html',context = {
     #     'dm': dm,
     # })
-
 def deleteBook(request):
+    Busy = request.POST.get('busy')
     owner = user_Owner.objects.get(user_user_id=request.user)
     dm = Book.objects.all().delete()
     return render(request, 'mydm/mydm.html', context = {

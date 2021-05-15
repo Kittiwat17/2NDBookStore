@@ -23,6 +23,10 @@ class Typebook(models.Model):
     Fiction = 'fiction'
     Documentary = 'documentary'
     Fairy = 'fairy'
+
+    Buy = 'buy'
+    Sell = 'sell'
+
     Typee = (
         (Cartoon, 'cartoon'),
         (Fiction, 'fiction'),
@@ -32,6 +36,15 @@ class Typebook(models.Model):
     typee = models.CharField(
         max_length=50,
         choices=Typee,
+        default='',
+    )
+    Select ={
+        (Buy, 'buy'),
+        (Sell, 'sell')
+    }
+    select = models.CharField(
+        max_length=50,
+        choices=Select,
         default='',
     )
     book_book_id = models.ForeignKey(Book, on_delete=models.CASCADE,null=True)    
