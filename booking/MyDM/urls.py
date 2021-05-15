@@ -7,5 +7,5 @@ from . import views
 urlpatterns = [
     # path('', views.mydormitory, name='mydormitory'),
     path('mydm/', views.myBook, name='mydm'),
-    path('ChangeStatus/',views.ChangeStatus, name='ChangeStatus'),
+    # path('ChangeStatus/',views.ChangeStatus, name='ChangeStatus'),
 ]

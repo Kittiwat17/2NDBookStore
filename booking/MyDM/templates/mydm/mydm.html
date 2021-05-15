@@ -2,60 +2,55 @@
 {% block content %}
 <div class="bg-white padding-l round content shadow t-center" style="margin-bottom:5em;">
 <theboxes>
-<h1>My Dormitory</h1>
+<h1>My Book</h1>
 <sp></sp>
 	<box col="6">
 		<inner>
-            <img src='{{dm.picture.url}}' style="width:50%;height:50%">					
+            <img src='{{dm.Picture.url}}' style="width:50%;height:50%">					
 			<sp></sp>
-			<h2><a href="{% url 'requestdm' %}">{{dm.NameDM}}</a></h2>
+			{% comment %} <h2><a href="{% url 'requestdm' %}">{{dm.NameDM}}</a></h2> {% endcomment %}
+			<h2><a href="#">{{dm.NameDM}}</a></h2>
 		</inner>
 	</box>
 	<box col="6">
 		<inner>
-					ชื่อหอ: {{dm.NameDM}}
+					ชื่อหนังสือ : {{dm.NameB}}
 					<sp></sp>
-                    {% if dm.typeP == 'male' %}
-                        ประเภท: หอพักรวม
-						<sp></sp>
-                    {% endif %}
-                    {% if dm.typeP == 'female' %}
-                        ประเภท: หอพักหญิง
-						<sp></sp>
-		            {% endif %}
-                    {% if dm.maid %}
-                        แม่บ้าน: มีแม่บ้าน
-                        {% else %}
-                        แม่บ้าน: ไม่มีแม่บ้าน
-		            {% endif %}
-					<sp></sp>                    
-                    {% if dm.internet %}
-                        อินเทอร์เนต: มี
-                        {% else %}
-                        อินเทอร์เนต: ไม่มี
-		            {% endif %}
+					ชื่อผู้แต่ง : {{dm.Author}}
 					<sp></sp>
-                    {% if dm.parking %}
-                        ที่จอดรถ: มี
-                        {% else %}
-                        ที่จอดรถ: ไม่มี
-		            {% endif %}
+					
+                    {% if rm.typee == 'cartoon' %}
+						ประเภทหนังสือ : การ์ตูน
+					<sp></sp>	
+					{% endif %}
+					{% if rm.typee == 'fiction' %}
+						ประเภทหนังสือ : นิยาย
 					<sp></sp>
-                    {% if dm.security %}
-                        หน่วยรักษาความปลอดภัย: มีรปภ.
-                        {% else %}
-                        หน่วยรักษาความปลอดภัย: ไม่มีรปภ.
-		            {% endif %}
+					{% endif %}
+					{% if rm.typee == 'documentary' %}
+						ประเภทหนังสือ : สารคดี
 					<sp></sp>
-                    {% if dm.cctv %}
-                        กล้องวงจรปิด: มี
-                        {% else %}
-                        กล้องวงจรปิด: ไม่มี
-		            {% endif %}
+					{% endif %}
+					{% if rm.Typee == 'fairy' %}
+						ประเภทหนังสือ : นิทาน
 					<sp></sp>
-                    {{dm.address}}
+					{% endif %}
+
+					ปีที่พิมพ์: {{dm.Year}}
 					<sp></sp>
-					<form method="POST" action="{% url 'ChangeStatus' %}" enctype="multipart/form-data">
+					ภาษา: {{dm.Language}}
+					<sp></sp>
+					วันที่ลงประกาศ: {{dm.start_time}}
+					<sp></sp>
+					ผู้ลงขาย: {{dm.user_user_id}}
+					<sp></sp>
+					ที่อยู่:  {{dm.Contact}}
+					<sp></sp>
+					รายละเอียดหนังสือ:  {{dm.Detail}}
+					<sp></sp>
+					<a style="color: red; font-weight: bold; font-size: 25px;">ราคา: {{dm.Price}} บาท</a>
+					{% comment %} <form method="POST" action="{% url 'ChangeStatus' %}" enctype="multipart/form-data"> {% endcomment %}
+				<form method="POST" action="#" enctype="multipart/form-data">
                 	{% csrf_token %}
                     <div class="name">
 					    <button type="submit" class="btn btn-danger" name='busy' >ไม่มีห้องว่างแล้ว</button>
