@@ -22,16 +22,20 @@ def ChangeStatus(request):
 def myBook(request):
     owner = user_Owner.objects.get(user_user_id=request.user)
     dm = Book.objects.filter(user_Owner_user_id=owner)
-    for i in dm:
-        rm = Typebook.objects.get(book_book_id=i.id)
-        if dm:
-            dm = Book.objects.get(user_Owner_user_id=owner)
-            return render(request, 'mydm/mydm.html',context = {
-                'dm': dm,
-                'rm': rm
-            })
-        else:
-            return redirect('Add')
+    # if dm:
+    #     dm = Book.objects.get(user_Owner_user_id=owner)
+    #     return render(request, 'mydm/mydm.html',context = {
+    #         'dm': dm,
+    #     })
+    # else:
+    #     return redirect('Add')
+    if dm:
+        dm = Book.objects.all()
+        return render(request, 'mydm/mydm.html', context = {
+            'dm': dm
+        })
+    else:
+        return redirect('Add')
 
     # if dm is null:
     #     return redirect('add/add.html')

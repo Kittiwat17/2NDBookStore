@@ -1,22 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="bg-white padding-l round content shadow t-center" style="margin-bottom:5em;">
+
 <theboxes>
 <h1>My Book</h1>
 <sp></sp>
+	{% for i in dm %}
 	<box col="6">
 		<inner>
             <img src='{{dm.Picture.url}}' style="width:50%;height:50%">					
-			<sp></sp>
+			<sp></sp> 
 			{% comment %} <h2><a href="{% url 'requestdm' %}">{{dm.NameDM}}</a></h2> {% endcomment %}
-			<h2><a href="#">{{dm.NameDM}}</a></h2>
+			<h2><a href="#">{{i.NameDM}}</a></h2>
 		</inner>
 	</box>
 	<box col="6">
 		<inner>
-					ชื่อหนังสือ : {{dm.NameB}}
+					ชื่อหนังสือ : {{i.NameB}}
 					<sp></sp>
-					ชื่อผู้แต่ง : {{dm.Author}}
+					ชื่อผู้แต่ง : {{i.Author}}
 					<sp></sp>
 					
                     {% if rm.typee == 'cartoon' %}
@@ -36,19 +38,19 @@
 					<sp></sp>
 					{% endif %}
 
-					ปีที่พิมพ์: {{dm.Year}}
+					ปีที่พิมพ์: {{i.Year}}
 					<sp></sp>
-					ภาษา: {{dm.Language}}
+					ภาษา: {{i.Language}}
 					<sp></sp>
-					วันที่ลงประกาศ: {{dm.start_time}}
+					วันที่ลงประกาศ: {{i.start_time}}
 					<sp></sp>
-					ผู้ลงขาย: {{dm.user_user_id}}
+					ผู้ลงขาย: {{i.user_user_id}}
 					<sp></sp>
-					ที่อยู่:  {{dm.Contact}}
+					ที่อยู่:  {{i.Contact}}
 					<sp></sp>
-					รายละเอียดหนังสือ:  {{dm.Detail}}
+					รายละเอียดหนังสือ:  {{i.Detail}}
 					<sp></sp>
-					<a style="color: red; font-weight: bold; font-size: 25px;">ราคา: {{dm.Price}} บาท</a>
+					<a style="color: red; font-weight: bold; font-size: 25px;">ราคา: {{i.Price}} บาท</a>
 					{% comment %} <form method="POST" action="{% url 'ChangeStatus' %}" enctype="multipart/form-data"> {% endcomment %}
 				<form method="POST" action="#" enctype="multipart/form-data">
                 	{% csrf_token %}
@@ -57,7 +59,8 @@
 				    </div> 
                 </form>
 		</inner>
-	</box>	
+	</box>
+	{% endfor %}
 </theboxes>		
 </div>
 {% endblock %}
