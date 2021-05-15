@@ -44,7 +44,13 @@ def myBook(request):
     #     'dm': dm,
     # })
 
-
+def deleteBook(request):
+    owner = user_Owner.objects.get(user_user_id=request.user)
+    dm = Book.objects.all().delete()
+    return render(request, 'mydm/mydm.html', context = {
+        'dm': dm
+    })
+    
 
 
 
