@@ -158,7 +158,15 @@ div.container>div.next>.arrow-right {
 					<h2>{{dm.NameB}}</h2>
 					<h3>{{dm.Author}}</h2>
 					{% comment %} ประเภทของหนังสือ {% endcomment %}
-					<sp></sp>	
+					<sp></sp>
+					{% if rm.select == 'buy' %}
+						ประกาศ ซื้อ
+					<sp></sp>
+					{% endif %}
+					{% if rm.select == 'sell' %}
+						ประกาศ ขาย
+					<sp></sp>
+					{% endif %}	
 					{% if rm.typee == 'cartoon' %}
 						ประเภทหนังสือ : การ์ตูน
 					<sp></sp>	

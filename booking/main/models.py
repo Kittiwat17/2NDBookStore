@@ -18,6 +18,7 @@ class Book(models.Model):
     Detail = models.TextField(max_length=255, default='')
     Picture = models.ImageField(default='')
     user_Owner_user_id = models.ForeignKey(user_Owner, on_delete=models.CASCADE, null=True)
+
 class Typebook(models.Model):
     Cartoon = 'cartoon'
     Fiction = 'fiction'
@@ -47,7 +48,8 @@ class Typebook(models.Model):
         choices=Select,
         default='',
     )
-    book_book_id = models.ForeignKey(Book, on_delete=models.CASCADE,null=True)    
+    book_book_id = models.ForeignKey(Book, on_delete=models.CASCADE,null=True)
+        
     
 
 class user_customer(models.Model):
