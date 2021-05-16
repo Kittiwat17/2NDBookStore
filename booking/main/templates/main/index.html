@@ -83,7 +83,10 @@
 							</div>
 
 							<hr>
-
+							<div class='item-content' style='text-align: center; margin-top: 3%'>
+								{% for l in tp %}
+									<h4 class="h7">{{l.select}}</h4>
+								{% endfor %}</div>
 							{% comment %} ตรง h2 จะให้เป็นประเภท : ประกาศรับซื้อ/ขาย แทนการทำ filter{% endcomment %}
 							<div class='item-content' style='text-align: center; margin-top: 3%'>
 								<h6 class="h8" style="color: red;">{{i.NameB}}</h4>

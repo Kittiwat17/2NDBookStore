@@ -9,7 +9,7 @@ from django.template.context_processors import request
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
-from main.models import Book, user_Owner
+from main.models import Book, user_Owner, Typebook
 from django.db.models import Q
 
 # Create your views here.
@@ -87,6 +87,7 @@ def index(request):
 
     else:
         ad = Book.objects.all()
+        tp = Typebook.objects.all()
     
         # if request.POST.get('maid') != 'select':
         #     ad = ad.filter
@@ -94,7 +95,8 @@ def index(request):
         #     ad = ad.filter
         
     context = { 
-        'ad': ad
+        'ad': ad,
+        'tp': tp
     }
 
     return render(request, 'main/index.html', context=context)
