@@ -83,16 +83,50 @@
 							</div>
 
 							<hr>
-							<div class='item-content' style='text-align: center; margin-top: 3%'>
+							
+							{% comment %} <div class='item-content' style='text-align: center; margin-top: 3%'>
+								<h4>
+									{% if l.select == 'buy' %}
+									โพสต์ประกาศซื้อ
+									{% endif %}
+									{% if l.select == 'sell' %}
+									โพสต์ประกาศขาย
+									{% endif %}
+								</h4>
+							</div> {% endcomment %}
+
+							
+							{% comment %} <div class='item-content' style='text-align: center; margin-top: 3%'> 
 								{% for l in tp %}
-									<h4 class="h7">{{l.select}}</h4>
-								{% endfor %}</div>
-							{% comment %} ตรง h2 จะให้เป็นประเภท : ประกาศรับซื้อ/ขาย แทนการทำ filter{% endcomment %}
+									{% if l.Select == 'buy' %}
+										โพสต์ประกาศซื้อ
+									{% endif %}
+								
+									{% if l.Select == 'sell' %}
+										โพสต์ประกาศขาย
+									{% endif %}
+								{% endfor %}
+							</div> {% endcomment %}
+
+							<div class='item-content' style='text-align: center; margin-top: 3%'> 
+								{% for l in tp %}
+									<h4 class="h7" style="color: red;">
+										{% if i == l.book_book_id %}
+											{% if l.select == "buy" %}
+												โพสต์ประกาศซื้อ
+											{% endif %}
+											{% if l.select == "sell" %}
+												โพสต์ประกาศขาย
+											{% endif%}
+										{% endif %}
+									</h4>
+								{% endfor %}
+							</div>
+
 							<div class='item-content' style='text-align: center; margin-top: 3%'>
-								<h6 class="h8" style="color: red;">{{i.NameB}}</h4>
 								<h4 class="h7">{{i.NameB}}</h4>
 								<h5 class="b4">
-								{{i.Contact}}
+								<p>ราคา {{i.Price}} บาท</p>
 								</h5>
 							</div>
 

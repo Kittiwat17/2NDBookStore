@@ -43,11 +43,11 @@
           {% if user.is_authenticated %}
           {% comment %} {% if user.groups.all.0.name == "Owner"  %} {% endcomment %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'Add' %}" style="color:#F7E8E5;">ประกาศขายหนังสือ</a>
+            <a class="nav-link" href="{% url 'Add' %}" style="color:#F7E8E5;">ลงประกาศหนังสือ</a>
           </li>
-          <li class="nav-item">
+          {% comment %} <li class="nav-item">
             <a class="nav-link" href="#" style="color:#F7E8E5;">ตั้งรับซื้อหนังสือ</a>
-          </li>
+          </li> {% endcomment %}
           {% endif %}
           {% comment %} {% endif %} {% endcomment %}
         </ul>

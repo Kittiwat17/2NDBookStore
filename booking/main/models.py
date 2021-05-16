@@ -39,17 +39,19 @@ class Typebook(models.Model):
         choices=Typee,
         default='',
     )
-    Select ={
+    Select =(
         (Buy, 'buy'),
         (Sell, 'sell')
-    }
+    )
+
     select = models.CharField(
         max_length=50,
         choices=Select,
         default='',
     )
     book_book_id = models.ForeignKey(Book, on_delete=models.CASCADE,null=True)
-        
+    
+    # print(Select)
     
 
 class user_customer(models.Model):

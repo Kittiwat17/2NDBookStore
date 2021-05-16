@@ -52,9 +52,9 @@
 				<form method="POST" action="#" enctype="multipart/form-data">
                 	{% csrf_token %}
 					
-					<div class="name">
+					{% comment %} <div class="name">
 					    <button type="submit" class="btn btn-primary" style="background-color: #75B272; font-family: 'Athiti', sans-serif;" >แก้ไขหนังสือ</button>
-				    </div> 
+				    </div>  {% endcomment %}
 					<sp></sp>
                     <div class="name">
 						{% comment %} <input type="submit" class="btn btn-danger" value="Yes" /> {% endcomment %}
