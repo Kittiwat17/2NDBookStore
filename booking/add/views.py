@@ -23,7 +23,7 @@ def addDomitory(request):
     dm = Book.objects.filter(user_Owner_user_id=owner)
     if not dm:
         if request.method == 'POST':
-            post = request.PoST.get('typepost')
+            post = request.POST.get('typepost')
             name = request.POST.get('nameBook')
             typeb = request.POST.get('typebook')
             nameauthor = request.POST.get('authorname')
@@ -41,12 +41,12 @@ def addDomitory(request):
 
             # status = 'empty'
             book = Book(NameB=name, Author=nameauthor, Year=year, Language=lang, Contact=con,
-            Detail=detail, Picture=picture_book)
+            Detail=detail, Picture=picture_book, user_Owner_user_id=user_Owner_user_id)
             book.save()
             # dormitory = Dormitory(NameDM=name, typeP=typeDM, maid=maid, internet=internet, parking=parking,
             #                     security=security, cctv=cctv, address=address, picture=pictureDM, user_Owner_user_id=user_Owner_user_id)
             # dormitory.save()
-            typebook = Typebook(typee=typeb, select=post)
+            typebook = Typebook(typee=typeb, select=post, book_book_id=book)
             typebook.save
             # room = Room(type_room=typeRoom, size=sizeRoom, status=status, Room_Price=Room_price,
             #         dormitory_dormitory_id=dormitory )
