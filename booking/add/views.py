@@ -18,8 +18,8 @@ from django.contrib.auth.decorators import login_required, permission_required
 def addDomitory(request):
     owner = user_Owner.objects.get(user_user_id=request.user)
     dm = Book.objects.filter(user_Owner_user_id=owner)
-    if not dm:
-        if request.method == 'POST':
+    # if not dm:
+    if request.method == 'POST':
             post = request.POST.get('typepost')
             name = request.POST.get('nameBook')
             typeb = request.POST.get('typebook')
@@ -42,6 +42,6 @@ def addDomitory(request):
             typebook = Typebook(typee=typeb, select=post, book_book_id=book)
             typebook.save()
             return redirect('index')
-        return render(request, template_name='add/index.html')
-    else:
-        return redirect('mydm')
+    return render(request, template_name='add/index.html')
+    # else:
+    #     return redirect('mydm')
