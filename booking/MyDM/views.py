@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, HttpResponseRedirect
 from django.template.context_processors import request
 from main.models import Book, Typebook, user_Owner
 
@@ -29,6 +29,9 @@ def myBook(request):
     #     })
     # else:
     #     return redirect('Add')
+    if request.method == "POST":
+        dm.delete()
+        return HttpResponseRedirect("/")
     if dm:
         dm = Book.objects.all()
         return render(request, 'mydm/mydm.html', context = {
@@ -44,9 +47,10 @@ def myBook(request):
     #     'dm': dm,
     # })
 def deleteBook(request):
+    print(request)
     Busy = request.POST.get('busy')
     owner = user_Owner.objects.get(user_user_id=request.user)
-    dm = Book.objects.all().delete()
+    dm = Book.objects.all(owner).delete()
     return render(request, 'mydm/mydm.html', context = {
         'dm': dm
     })

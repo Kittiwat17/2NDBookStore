@@ -57,9 +57,17 @@
 				    </div> 
 					<sp></sp>
                     <div class="name">
-					    <button type="submit" class="btn btn-danger" name='busy' style="background-color: red; font-family: 'Athiti', sans-serif;" >ลบหนังสือนี้</button>
-				    </div> 
+						{% comment %} <input type="submit" class="btn btn-danger" value="Yes" /> {% endcomment %}
+						<a href="/"style="margin-left:5%;width:20%" >
+					    	<button type="submit" class="btn btn-danger" name='busy' value="Yes" style="background-color: red; font-family: 'Athiti', sans-serif;" >ลบหนังสือนี้</button>
+				    	</a>
+					</div> 
                 </form>
+				{% comment %} <a href="{% url 'logout' %}"style="margin-left:5%;width:20%" >
+              <button class="btn my-2 my-sm-0" type="button" style="width:100%;background-color:#E7C4C2;">
+                Logout
+              </button>
+            </a> {% endcomment %}
 		
 		</inner>
 	</box>
