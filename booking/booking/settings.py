@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'booking.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DATABASE_NAME'),
-        'USER': os.environ.get('DATABASE_USER'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        'HOST': os.environ.get('DATABASE_HOST'),
+        'NAME': "masteruser",
+        'USER': "masteruser",
+        'PASSWORD': "cdGroup13",
+        'HOST': "masteruser.ciluasfmkj9g.ap-southeast-1.rds.amazonaws.com",
         'PORT': '5432'
     }
 }
