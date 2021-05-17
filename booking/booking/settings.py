@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'booking.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "masteruser",
+        'NAME': "2ndbookstore",
         'USER': "masteruser",
         'PASSWORD': "cdGroup13",
         'HOST': "masteruser.ciluasfmkj9g.ap-southeast-1.rds.amazonaws.com",
