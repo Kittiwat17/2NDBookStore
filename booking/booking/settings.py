@@ -25,7 +25,7 @@ SECRET_KEY = 'er7twt=ae-px_ix8evhi%kv3)h^b=9w769^@09u7_p61zx(he5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['http://ec2-18-141-233-220.ap-southeast-1.compute.amazonaws.com/']
 
 
 # Application definition
@@ -133,7 +133,7 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = '/home/ubuntu/static'
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 # import dj_database_url
 # db_from_env = dj_database_url.config(conn_max_age=600)
 # DATABASES['default'].update(db_from_env)
